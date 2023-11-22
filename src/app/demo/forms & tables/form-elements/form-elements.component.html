@@ -1,0 +1,107 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="Agrupaciones" [options]="false">
+      <h5>Datos de la Agrupación</h5>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+          <form action="javascript:">
+            <div class="form-group">
+              <label for="name">Nombre Agrupación</label>
+              <input type="text" class="form-control" id="name" placeholder="Ingrese Nombre" [(ngModel)]="nombreAgrupacion" name="nombreAgrupacion"/>
+            </div>
+
+            <div class="form-group">
+              <label for="region">Región</label>
+              <select class="form-control" id="region" name="region" [(ngModel)]="regionSeleccionada"
+                      (change)="onRegionChange($event)">
+                <option value="">Seleccione una región</option>
+                <option *ngFor="let region of regiones" [value]="region.id">{{ region.name }}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Agrupación</label>
+              <input type="email" class="form-control" id="email" placeholder="Ingrese Email de la Agrupación" [(ngModel)]="emailAgrupacion" name="emailAgrupacion"/>
+            </div>
+            <div class="form-group">
+              <label for="fundationDate">Fecha de Fundación</label>
+              <input type="date" class="form-control" id="fundationDate" [(ngModel)]="fechaFundacion" name="emailAgrupacion"/>
+            </div>
+            <div class="form-group">
+              <label for="repname">Nombre Representante</label>
+              <input type="text" class="form-control" id="repname" placeholder="Ingrese nombre del representante" [(ngModel)]="nombreRepresentante" name="nombreRepresentante"/>
+            </div>
+            <div class="form-group">
+              <label for="web">Sitio Web</label>
+              <input type="text" class="form-control" id="web" placeholder="Ingrese Sitio Web" [formControl]="websiteFormControl" [(ngModel)]="webAgrupacion" name="webAgrupacion" />
+              <div style='color:red' *ngIf="websiteFormControl.errors?.['pattern']">
+                Por favor, introduzca una dirección de sitio web válida (por ejemplo, example.com).
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="logo">Logo de la Agrupación</label>
+              <input type="file" class="form-control" id="logo" [(ngModel)]="logoAgrupacion" name="logoAgrupacion"/>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-6">
+          <form action="javascript:">
+            <div class="form-group">
+              <label for="address">Dirección</label>
+              <input type="text" class="form-control" id="address" placeholder="Ingrese Dirección" [(ngModel)]="direccionAgrupacion" name="direccionAgrupacion" />
+            </div>
+
+            <div class="form-group">
+              <label for="commune">Comuna</label>
+              <select class="form-control" id="commune" name="comunaAgrupacion" [(ngModel)]="comunaSeleccionada">
+                <option value="">Seleccione una comuna</option>
+                <option *ngFor="let comuna of comunasSeleccionadas" [value]="comuna.id">{{ comuna.name }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="phone">Teléfono</label>
+              <input type="tel" class="form-control" id="phone" placeholder="ej. +56912345678" [(ngModel)]="telefonoAgrupacion" name="telefonoAgrupacion" />
+            </div>
+            <div class="form-group">
+              <label for="type">Tipo de Agrupación</label>
+              <select class="form-control" id="type" [(ngModel)]="tipoAgrupacion" name="tipoAgrupacion">
+                <option>Escuela de Samba</option>
+                <option>Roda de Samba</option>
+                <option>Bloco Carnavalesco</option>
+                <option>Agrupación Musical</option>
+                <option>Agrupación de Danza</option>
+                <option>Centro Cultural</option>
+                <option>Taller</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="repemail">Email Representante</label>
+              <input type="email" class="form-control" id="repemail" placeholder="Ingrese Email del Representante" [(ngModel)]="emailRepresentante" name="emailRepresentante" />
+            </div>
+            <div class="form-group">
+              <label for="members">Cantidad Integrantes</label>
+              <input type="number" class="form-control" id="members" placeholder="Ingrese Cantidad" [(ngModel)]="miembrosAgrupacion" name="miembrosAgrupacion"/>
+            </div>
+            <div class="form-group">
+              <label for="description">Descripción General</label>
+              <textarea class="form-control" id="description" rows="3" [(ngModel)]="descripcionAgrupacion" name="descripcionAgrupacion"></textarea>
+            </div>
+            <div class="d-flex justify-content-end align-items-center">
+              <!-- Mensaje de éxito -->
+              <div *ngIf="showSuccessMessage" style="color: green; margin-right: 10px;">
+                Agrupación creada exitosamente
+              </div>
+              <!-- Botón para crear la agrupación -->
+              <button (click)="enviarNuevaAgrupation()" class="btn btn-primary">
+                Crear Agrupación
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

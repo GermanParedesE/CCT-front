@@ -1,0 +1,30 @@
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="card">
+      <div class="row align-items-center text-center">
+        <div class="col-md-12">
+          <div class="card-body">
+            <img src="assets/images/logo-dark.png" alt="logo" class="img-fluid mb-4" />
+            <h4 class="mb-3 f-w-400">Iniciar Sesión</h4>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="feather icon-mail"></i></span>
+              <input type="email" class="form-control" placeholder="Email" [(ngModel)]="email" />
+            </div>
+            <div class="input-group mb-4">
+              <span class="input-group-text" id="basic-addon3"><i class="feather icon-lock"></i></span>
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" />
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-block btn-primary mb-4 white-text" (click)="signIn()">Ingresar</button>
+            </div>
+
+            <p class="mb-0 text-muted">No tienes una cuenta? <a [routerLink]="['/auth/signup']" class="f-w-400">Regístrate</a></p>
+            <p class="mb-2 text-muted">Olvidaste tu contraseña? <a href="javascriprt:" class="f-w-400">Restaurar</a></p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

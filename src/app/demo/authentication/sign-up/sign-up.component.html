@@ -1,0 +1,38 @@
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="card">
+      <div class="row align-items-center text-center">
+        <div class="col-md-12">
+          <div class="card-body">
+            <img src="assets/images/logo-dark.png" alt="logo" class="img-fluid mb-4" />
+            <h4 class="mb-3 f-w-400">Regístrate</h4>
+            <div class="input-group mb-3">
+              <span class="input-group-text"><i class="feather icon-user"></i></span>
+              <input type="text" class="form-control" placeholder="Nombre Usuario" [(ngModel)]="username" />
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text"><i class="feather icon-mail"></i></span>
+              <input type="email" class="form-control" placeholder="Email" [(ngModel)]="email" />
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text"><i class="feather icon-lock"></i></span>
+              <input [type]="showPassword ? 'text' : 'password'" class="form-control" placeholder="Password" [(ngModel)]="password" />
+              <span class="input-group-text" (click)="togglePasswordVisibility()"><i class="feather" [ngClass]="showPassword ? 'icon-eye-off' : 'icon-eye'"></i></span>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text"><i class="feather icon-lock"></i></span>
+              <input [type]="showConfirmPassword ? 'text' : 'password'" class="form-control" placeholder="Confirmar Password" [(ngModel)]="confirmPassword" />
+              <span class="input-group-text" (click)="toggleConfirmPasswordVisibility()"><i class="feather" [ngClass]="showConfirmPassword ? 'icon-eye-off' : 'icon-eye'"></i></span>
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-primary btn-block mb-4" (click)="register()">Regístrate</button>
+            </div>
+            <p class="mb-2">Ya tienes una cuenta? <a [routerLink]="['/auth/signin']" class="f-w-400">Iniciar Sesión</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
